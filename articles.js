@@ -3,8 +3,8 @@
 //
 
 if (Meteor.isClient){
-  Template.leaderboard.articles = Articles;
-  Template.leaderboard.tableSettings = { 
+  Template.allArticles.articles = Articles;
+  Template.allArticles.tableSettings = { 
     rowsPerPage: 100, 
     fields: [
               'pii',
@@ -38,7 +38,7 @@ if (Meteor.isClient){
       }
     }
   });
-  Template.leaderboard.events({
+  Template.allArticles.events({
     'click #scrape': function(e, template){
       var _id = $(e.target).attr('_id');
       console.log(_id);

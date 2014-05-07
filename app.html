@@ -6,11 +6,11 @@
   <div class="container">
   <h1><strong>ALL</strong> the data</h1>
   {{> addArticle}}
-  {{> leaderboard}}
+  {{> allArticles}}
   </div>
 </body>
 
-<template name="leaderboard">
+<template name="allArticles">
   <div>
     {{> reactiveTable collection=articles settings=tableSettings }}
   </div>
