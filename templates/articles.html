@@ -1,16 +1,5 @@
-<head>
-  <title>idx</title>
-</head>
-
-<body>
-  <div class="container">
-  <h1><strong>ALL</strong> the data</h1>
-  {{> addArticle}}
-  {{> allArticles}}
-  </div>
-</body>
-
 <template name="allArticles">
+  {{> addArticle}}
   <div>
     {{> reactiveTable collection=articles settings=tableSettings }}
   </div>
