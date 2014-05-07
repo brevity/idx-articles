@@ -1,0 +1,22 @@
+<head>
+  <title>idx</title>
+</head>
+
+<body>
+  <div class="container">
+  <h1><strong>ALL</strong> the data</h1>
+  {{> addArticle}}
+  {{> leaderboard}}
+  </div>
+</body>
+
+<template name="leaderboard">
+  <div>
+    {{> reactiveTable collection=articles settings=tableSettings }}
+  </div>
+</template>
+<template name="addArticle">
+  <div>
+    <input type="text" id="addArticle" />
+  </div>
+</template>
