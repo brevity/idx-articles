@@ -7,8 +7,7 @@ standard-app-packages
 autopublish
 insecure
 http
-idx
-test
-just-i18n
 reactive-table
 bootstrap-3
+collection-hooks
+idx
