@@ -1,6 +1,3 @@
-// Set up a collection to contain article information. On the server,
-// it is backed by a MongoDB collection named "articles".
-//
 
 if (Meteor.isClient){
   Template.allArticles.articles = Articles;
@@ -8,24 +5,34 @@ if (Meteor.isClient){
     rowsPerPage: 100, 
     fields: [
               'pii',
+              'doi',
+              'pmc id',
+              'publish date',
+              'title',
               {
-                key: 'reports',
-                label: 'title',
+                key:'reports',
+                label: 'pmc status',
                 fn: function(value, object){
-                  if (object.reports){
-                  var reports = object.reports,
-                      last = reports.length -1,
-                      title = object.reports[reports.length -1].title;
-                  return new Spacebars.SafeString(title);
-                  } else {
-                    return new Spacebars.SafeString("Scrape pending");
+                  if(object.reports){
+                    return new Spacebars.SafeString( value[value.length -1]['pmc status'] );
                   }
+                  else {return "wait on report";}
                 }
               },
               {
                 key:'pii',
                 label: 'scrape',
                 fn: function(value, object){return new Spacebars.SafeString('<a id="scrape" _id="' + object._id + '">' + value + '</a>');}
+              },
+              {
+                key:'reports',
+                label: 'stamp',
+                fn: function(value, object){
+                  if(object.reports){
+                    return new Spacebars.SafeString( value[value.length -1]['stamp'] );
+                  }
+                  else {return "wait on report";}
+                }
               }
             ] };
 
