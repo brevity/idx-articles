@@ -5,6 +5,7 @@ if (Meteor.isClient){
     rowsPerPage: 100, 
     fields: [
               'pii',
+              'pii plus 1',
               'doi',
               'pmc id',
               'publish date',
@@ -29,7 +30,7 @@ if (Meteor.isClient){
                 label: 'stamp',
                 fn: function(value, object){
                   if(object.reports){
-                    return new Spacebars.SafeString( value[value.length -1]['stamp'] );
+                    return new Spacebars.SafeString( value[value.length -1].stamp );
                   }
                   else {return "wait on report";}
                 }
