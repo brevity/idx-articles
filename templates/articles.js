@@ -2,28 +2,33 @@
 if (Meteor.isClient){
   Template.allArticles.articles = Articles;
   Template.allArticles.tableSettings = { 
-    rowsPerPage: 100, 
+    rowsPerPage: 10, 
     fields: [
               'pii',
-              'pii plus 1',
-              'doi',
-              'pmc id',
-              'publish date',
-              'title',
               {
-                key:'reports',
-                label: 'pmc status',
-                fn: function(value, object){
-                  if(object.reports){
-                    return new Spacebars.SafeString( value[value.length -1]['pmc status'] );
-                  }
-                  else {return "wait on report";}
+                key:'pmc id',
+                label:'pmc id', 
+                fn: function(resolution, object){
+                  return resolution;
+                  // return Template.allArticles.showResolution(resolution);
                 }
               },
+              'doi',
+              'publish date',
+              'title',
               {
                 key:'pii',
                 label: 'scrape',
                 fn: function(value, object){return new Spacebars.SafeString('<a id="scrape" _id="' + object._id + '">' + value + '</a>');}
+              },
+              {
+                key:'reports',
+                label: 'pmc:ok',
+                fn: function(value, object){
+                  if(object.reports){
+                    return new Spacebars.SafeString( value[value.length -1]['pmc:ok'] );
+                  }
+                }
               },
               {
                 key:'reports',
@@ -39,10 +44,16 @@ if (Meteor.isClient){
 
   Template.addArticle.events({
     keypress: function(e){
-      if (e.keyCode == 13){
-        Articles.insert({pii:e.target.value});
-        console.log(e.target.value);
-
+      console.log(e);
+      if (e.keyCode == 13 && !e.altKey){
+        try{
+          var article = JSON.parse(e.target.value);
+          
+         Articles.insert(article);
+          console.log(article);
+        }catch(err){
+          console.log("Error: invalid JSON input");
+        } 
       }
     }
   });
@@ -53,5 +64,22 @@ if (Meteor.isClient){
       Articles.update(_id, {$set: {scrape:true}});
     }
   });
+  Template.allArticles.showResolution = function showResolution(resolution){
+    var error;
+    try{
+      error = resolution.error;
+    } catch(e){
+      error = false;
+    }
+    if(error){
+      console.log(error);
+      console.log(resolution);
+      return new Spacebars.SafeString('error');
+    //  return new Spacebars.SafeString(error);
+    } else {
+      console.log(resolution);
+      return new Spacebars.SafeString(resolution);
+    }
+  };
 }
 

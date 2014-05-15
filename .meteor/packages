@@ -10,4 +10,5 @@ http
 reactive-table
 bootstrap-3
 collection-hooks
+emitter
 idx
