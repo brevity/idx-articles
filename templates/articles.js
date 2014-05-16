@@ -2,7 +2,8 @@
 if (Meteor.isClient){
   Template.allArticles.articles = Articles;
   Template.allArticles.tableSettings = { 
-    rowsPerPage: 10, 
+    rowsPerPage: 100, 
+
     fields: [
               'pii',
               {
@@ -54,6 +55,23 @@ if (Meteor.isClient){
         }catch(err){
           console.log("Error: invalid JSON input");
         } 
+      }
+    },
+    'click #add-test-article': function(e, template){
+      for(var i = 0; i < 30; i++){
+        var idName = e.target.outerText,
+            article = {};
+
+        if (idName == "pii"){
+          article[idName] = Meteor.testids.shift()[0];
+        } else if (idName == "doi") {
+          article[idName] = Meteor.testids.shift()[1];
+        } else if (idName == "pm id") {
+          article[idName] = Meteor.testids.shift()[2];
+        } else if (idName == "pmc id") {
+          article[idName] = Meteor.testids.shift()[3];
+        }
+        Articles.insert(article);
       }
     }
   });
