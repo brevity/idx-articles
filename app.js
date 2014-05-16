@@ -12,11 +12,11 @@ if(Meteor.isClient){
         var articleAdder = Meteor.setInterval(function addAnArticle(){
           var article = { pii: Meteor.testids.shift()[0]};
           articleCount++;
-          if(articleCount > 5){
+          if(articleCount > 0){
             Meteor.clearInterval(articleAdder);
           }
           Articles.insert(article);
-        },500);
+        },5);
      // },5000);
     }
   });

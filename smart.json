@@ -3,6 +3,9 @@
     "reactive-table": {},
     "bootstrap-3": {},
     "collection-hooks": {},
-    "emitter": {}
+    "emitter": {},
+    "moment": {},
+    "livestamp": {},
+    "npm": {}
   }
 }

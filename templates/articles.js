@@ -6,6 +6,7 @@ if (Meteor.isClient){
 
     fields: [
               'pii',
+              'pm id',
               {
                 key:'pmc id',
                 label:'pmc id', 
@@ -36,7 +37,7 @@ if (Meteor.isClient){
                 label: 'stamp',
                 fn: function(value, object){
                   if(object.reports){
-                    return new Spacebars.SafeString( value[value.length -1].stamp );
+                    return new Spacebars.SafeString("<span data-livestamp='" + value[value.length -1].stamp.toISOString() + "'></span>");
                   }
                   else {return "wait on report";}
                 }
@@ -58,7 +59,7 @@ if (Meteor.isClient){
       }
     },
     'click #add-test-article': function(e, template){
-      for(var i = 0; i < 30; i++){
+      for(var i = 0; i < 5; i++){
         var idName = e.target.outerText,
             article = {};
 
@@ -72,6 +73,13 @@ if (Meteor.isClient){
           article[idName] = Meteor.testids.shift()[3];
         }
         Articles.insert(article);
+      }
+    },
+    'click #clear-articles': function(e, template){
+      var _ids = Articles.find({}, {_id:1}).map(function(item){ return item._id; });
+      for (var _id in _ids){
+        console.log(_id);
+        Articles.remove(_ids[_id]);
       }
     }
   });

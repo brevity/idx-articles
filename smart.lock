@@ -5,7 +5,10 @@
       "reactive-table": {},
       "bootstrap-3": {},
       "collection-hooks": {},
-      "emitter": {}
+      "emitter": {},
+      "moment": {},
+      "livestamp": {},
+      "npm": {}
     },
     "packages": {
       "reactive-table": {
@@ -27,6 +30,21 @@
         "git": "https://github.com/Meteor-Reaction/meteor-emitter.git",
         "tag": "v0.1.0",
         "commit": "849a91bbe4e1e0636f49fa2e5141e74ed5137a27"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.6.0",
+        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+      },
+      "livestamp": {
+        "git": "https://github.com/colllin/meteor-livestamp.git",
+        "tag": "v1.1.2-3",
+        "commit": "d161b9de53d7032511ecaa13486b6b5cb11f71f3"
+      },
+      "npm": {
+        "git": "https://github.com/arunoda/meteor-npm.git",
+        "tag": "v0.2.6",
+        "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
       },
       "just-i18n": {
         "git": "https://github.com/subhog/meteor-just-i18n.git",

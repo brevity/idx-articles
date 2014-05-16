@@ -5,3 +5,7 @@
 /idx
 /collection-hooks
 /emitter
+/timeago
+/livestamp
+/moment
+/cheerio
