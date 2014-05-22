@@ -1,20 +1,30 @@
 <template name="allArticles">
+  <div class="container">
+  <h1><strong>ALL</strong> the data</h1>
   {{> addArticle}}
-  <div>
     {{> reactiveTable collection=articles settings=tableSettings }}
   </div>
 </template>
+
 <template name="addArticle">
-  <div>
-    <textarea  rows="4" cols="100" id="addArticle">
-{
-  "pmc id":"PMC3329502"
-}
-    </textarea>
-  <button type="button" class="btn btn-default" id="add-test-article">pii</button>
-  <button type="button" class="btn btn-default" id="add-test-article">doi</button>
-  <button type="button" class="btn btn-default" id="add-test-article">pm id</button>
-  <button type="button" class="btn btn-default" id="add-test-article">pmc id</button>
-  <button type="button" class="btn btn-default" id="clear-articles">clear</button>
+<div class="input-group">
+  <div class="input-group-btn">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><strong>Add5by</strong></li>
+      <li class="divider"></li>
+      <li><a href="#" class="add-article-by-id">pii</a></li>
+      <li><a href="#" class="add-article-by-id">doi</a></li>
+      <li><a href="#" class="add-article-by-id">pm id</a></li>
+      <li><a href="#" class="add-article-by-id">pmc id</a></li>
+      <li class="divider"></li>
+      <li><a id="clear-articles" href="#">clear</a></li>
+    </ul>
+    <button type="button" class="btn btn-default add-article-json" tabindex="-1">json</button>
   </div>
+  <input id="addArticle" type="text" class="form-control" placeholder='{ "pmc id": "PMC4004617" }'>
+</div>
 </template>

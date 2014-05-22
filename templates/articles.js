@@ -46,19 +46,31 @@ if (Meteor.isClient){
 
   Template.addArticle.events({
     keypress: function(e){
-      console.log(e);
       if (e.keyCode == 13 && !e.altKey){
         try{
           var article = JSON.parse(e.target.value);
           
          Articles.insert(article);
-          console.log(article);
         }catch(err){
-          console.log("Error: invalid JSON input");
         } 
       }
     },
-    'click #add-test-article': function(e, template){
+    'click .add-article-json': function(e, template){
+      var article = {},
+          json = template.$('#addArticle').val();
+      console.log("add-article-json", json);
+      if(json === ""){
+        article['pmc id'] = Meteor.testids.shift()[2];
+      } else {
+        try{
+          article = JSON.parse(json);
+        } catch(err) {
+          console.log("Error: Your JSON is malformed");
+        }
+      }
+      Articles.insert(article);
+    },
+    'click .add-article-by-id': function(e, template){
       for(var i = 0; i < 5; i++){
         var idName = e.target.outerText,
             article = {};
@@ -78,7 +90,6 @@ if (Meteor.isClient){
     'click #clear-articles': function(e, template){
       var _ids = Articles.find({}, {_id:1}).map(function(item){ return item._id; });
       for (var _id in _ids){
-        console.log(_id);
         Articles.remove(_ids[_id]);
       }
     }
@@ -86,7 +97,6 @@ if (Meteor.isClient){
   Template.allArticles.events({
     'click #scrape': function(e, template){
       var _id = $(e.target).attr('_id');
-      console.log(_id);
       Articles.update(_id, {$set: {scrape:true}});
     }
   });
@@ -98,12 +108,9 @@ if (Meteor.isClient){
       error = false;
     }
     if(error){
-      console.log(error);
-      console.log(resolution);
       return new Spacebars.SafeString('error');
     //  return new Spacebars.SafeString(error);
     } else {
-      console.log(resolution);
       return new Spacebars.SafeString(resolution);
     }
   };

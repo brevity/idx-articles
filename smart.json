@@ -6,6 +6,7 @@
     "emitter": {},
     "moment": {},
     "livestamp": {},
-    "npm": {}
+    "npm": {},
+    "iron-router": {}
   }
 }
