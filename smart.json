@@ -1,12 +1,12 @@
 {
   "packages": {
-    "reactive-table": {},
-    "bootstrap-3": {},
-    "collection-hooks": {},
-    "emitter": {},
-    "moment": {},
-    "livestamp": {},
-    "npm": {},
-    "iron-router": {}
+    "iron-router":{},
+    "moment":{},
+    "livestamp":{},
+    "npm":{},
+    "idx": {
+      "git":"https://github.com/brevity/idx.git",
+      "branch": "repackage"
+    }
   }
 }

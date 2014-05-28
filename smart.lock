@@ -2,35 +2,20 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "reactive-table": {},
-      "bootstrap-3": {},
-      "collection-hooks": {},
-      "emitter": {},
+      "iron-router": {},
       "moment": {},
       "livestamp": {},
       "npm": {},
-      "iron-router": {}
+      "idx": {
+        "git": "https://github.com/brevity/idx.git",
+        "branch": "repackage"
+      }
     },
     "packages": {
-      "reactive-table": {
-        "git": "https://github.com/ecohealthalliance/reactive-table.git",
-        "tag": "v0.3.11",
-        "commit": "9ec88b8bcded8ced97cc8736f3d2ecbe3e7b926d"
-      },
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.1-1",
-        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
-      },
-      "collection-hooks": {
-        "git": "https://github.com/matb33/meteor-collection-hooks.git",
-        "tag": "v0.6.7",
-        "commit": "f1d2ac629864edda09df6c955fa5ff3df26f739c"
-      },
-      "emitter": {
-        "git": "https://github.com/Meteor-Reaction/meteor-emitter.git",
-        "tag": "v0.1.0",
-        "commit": "849a91bbe4e1e0636f49fa2e5141e74ed5137a27"
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
@@ -47,20 +32,40 @@
         "tag": "v0.2.6",
         "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
       },
-      "iron-router": {
-        "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.1",
-        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
-      },
-      "just-i18n": {
-        "git": "https://github.com/subhog/meteor-just-i18n.git",
-        "tag": "v0.2.4",
-        "commit": "91decfcf5b3b5e67f202a67658350b862330bf3d"
+      "idx": {
+        "git": "https://github.com/brevity/idx.git",
+        "branch": "repackage",
+        "commit": "a7c78b2337b331e39ad65f8e6f80e2bcd2f27dce"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
+      },
+      "reactive-table": {
+        "git": "https://github.com/ecohealthalliance/reactive-table.git",
+        "tag": "v0.3.11",
+        "commit": "9ec88b8bcded8ced97cc8736f3d2ecbe3e7b926d"
+      },
+      "collection-hooks": {
+        "git": "https://github.com/matb33/meteor-collection-hooks.git",
+        "tag": "v0.6.7",
+        "commit": "f1d2ac629864edda09df6c955fa5ff3df26f739c"
+      },
+      "emitter": {
+        "git": "https://github.com/Meteor-Reaction/meteor-emitter.git",
+        "tag": "v0.1.0",
+        "commit": "849a91bbe4e1e0636f49fa2e5141e74ed5137a27"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v3.1.1-1",
+        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+      },
+      "just-i18n": {
+        "git": "https://github.com/subhog/meteor-just-i18n.git",
+        "tag": "v0.2.4",
+        "commit": "91decfcf5b3b5e67f202a67658350b862330bf3d"
       }
     }
   }
